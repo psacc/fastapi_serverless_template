@@ -10,12 +10,18 @@ lint() {
 }
 
 test() {
+    export API_SPEC_PATH="$PWD/api-spec/"
     poetry run pytest
 }
 
 autoupdate() {
     poetry update && \
     poetry run pre-commit autoupdate
+}
+
+serve() {
+    export API_SPEC_PATH="$PWD/api-spec/"
+    poetry run uvicorn finn_codesubmit.app:app --reload
 }
 
 case "$1" in
@@ -31,7 +37,10 @@ case "$1" in
     autoupdate)
         autoupdate
         ;;
+    serve)
+        serve
+        ;;
     *)
-        echo "Error: Invalid command. Available commands: setup | lint | test | autoupdate"
+        echo "Error: Invalid command. Available commands: setup | lint | test | autoupdate | serve"
         ;;
 esac
