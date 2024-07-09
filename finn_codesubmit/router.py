@@ -5,8 +5,8 @@ from finn_codesubmit.datastore import InMemoryDataStore
 from finn_codesubmit.url_shortener import UrlShortener
 
 stage = os.environ.get("STAGE", "dev")
-url_prefix = os.environ.get("URL_PREFIX", "myservice.dev")
-api_spec_path = os.environ.get("API_SPEC_PATH", "../api-spec")
+url_prefix = os.environ.get("URL_PREFIX", "https://myservice.dev")
+api_spec_path = os.environ.get("API_SPEC_PATH", "./api-spec")
 
 spec_router = SpecRouter(api_spec_path)
 

@@ -10,8 +10,7 @@ lint() {
 }
 
 test() {
-    export API_SPEC_PATH="$PWD/api-spec/"
-    poetry run pytest
+    poetry run pytest --cov=finn_codesubmit --cov-report=xml --cov-report=term tests/
 }
 
 autoupdate() {
