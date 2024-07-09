@@ -1,0 +1,55 @@
+openapi: "3.0.3"
+info:
+  title: URL Shortener Backend API
+  version: "1.0"
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /encode:
+    post:
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: The URL to be encoded.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: URL encoded successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  encodedUrl:
+                    type: string
+                    description: The encoded version of the URL.
+        "400":
+          description: Bad Request - Invalid URL format.
+        "401":
+          description: Unauthorized - API key missing or invalid.
+  /decode:
+    get:
+      parameters:
+        - name: key
+          in: path
+          required: true
+          description: The encoded key to be decoded.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Key decoded successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  originalUrl:
+                    type: string
+                    description: The original URL before encoding.
+        "400":
+          description: Bad Request - Invalid or missing key.
+        "401":
+          description: Unauthorized - API key missing or invalid.
