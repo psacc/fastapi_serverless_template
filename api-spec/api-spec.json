@@ -1,0 +1,90 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "URL Shortener API",
+    "description": "A simple URL shortener API",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "EncodedUrlResponse": {
+        "title": "The encoded URL response",
+        "required": ["shortUrl"],
+        "type": "object",
+        "properties": {
+          "shortUrl": {
+            "title": "The shortened URL",
+            "type": "string"
+          }
+        }
+      },
+      "DecodedUrlReponse": {
+        "title": "The decoded URL response",
+        "required": ["originalUrl"],
+        "type": "object",
+        "properties": {
+          "originalUrl": {
+            "title": "Original long URL",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/encode": {
+      "post": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The URL to be encoded"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EncodedUrlResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/decode": {
+      "post": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The URL to be decoded"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecodedUrlReponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

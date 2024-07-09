@@ -1,0 +1,12 @@
+__pycache__/
+.vscode/
+
+node_modules/
+
+# Serverless directories
+.serverless
+
+.coverage
+coverage.xml
+
+.hypothesis/
