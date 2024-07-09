@@ -19,7 +19,6 @@ autoupdate() {
 }
 
 serve() {
-    export API_SPEC_PATH="$PWD/api-spec/"
     poetry run uvicorn finn_codesubmit.app:app --reload
 }
 

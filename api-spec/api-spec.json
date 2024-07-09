@@ -28,6 +28,17 @@
             "type": "string"
           }
         }
+      },
+      "ErrorReponse": {
+        "title": "Generic error response",
+        "required": ["detail"],
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Error message",
+            "type": "string"
+          }
+        }
       }
     }
   },
@@ -55,6 +66,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Invalid URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorReponse"
+                }
+              }
+            }
           }
         }
       }
@@ -79,6 +100,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DecodedUrlReponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorReponse"
                 }
               }
             }

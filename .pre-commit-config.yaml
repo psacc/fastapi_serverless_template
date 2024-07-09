@@ -35,7 +35,12 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        exclude: "^openapi_to_fastapi/tests/__snapshots__/"
+
+  - repo: https://github.com/python-openapi/openapi-spec-validator
+    rev: 0.7.1 # The version to use or 'master' for latest
+    hooks:
+      - id: openapi-spec-validator
+        files: ^api-spec/api-spec\.json$
 
   - repo: https://github.com/twu/skjold
     rev: v0.6.2

@@ -20,6 +20,7 @@ pytest = "^8.2.2"
 skjold = "^0.6.2"
 pytest-cov = "^5.0.0"
 pytest-asyncio = "^0.23.7"
+schemathesis = "^3.31.1"
 
 [tool.skjold]
 report_only = false
