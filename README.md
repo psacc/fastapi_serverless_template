@@ -146,6 +146,10 @@ Addressing all security concert is very time consuming. What I've done here is t
 * Authentication / Authorization is not implemented, nor should be directly in the code that handles the logic, it can be added declaratively (via Serverless for example).
 * Environment configuration and secrets handling is not shown, as Serverless supports it would not have added much in terms of the logic to implement.
 
+#### Documentation
+
+To author the documentation I've used [https://gitbook.com](https://gitbook.com) as it sits in a good middle ground between code friendly and writing friendly, as I value having good written documentation while also the code should be clear and easy to read.
+
 ## Appendix
 
 Here is a list of the relevant documentation links to go deeper and for reference:
