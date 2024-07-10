@@ -1,3 +1,4 @@
 # Table of contents
 
-* [Page](README.md)
+* [README](README.md)
+* [Original README](original-readme.md)
