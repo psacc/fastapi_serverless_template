@@ -1,5 +1,6 @@
 from fastapi.openapi.utils import get_openapi
 from fastapi import FastAPI
+from mangum import Mangum
 
 from finn_codesubmit import router
 
@@ -25,3 +26,5 @@ def custom_openapi():
 
 
 app.openapi = custom_openapi
+
+handler = Mangum(app)

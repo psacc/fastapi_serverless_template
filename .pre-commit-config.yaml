@@ -7,6 +7,7 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
+        exclude: serverless\.yml$
       - id: check-added-large-files
       - id: check-merge-conflict
       - id: debug-statements
@@ -40,7 +41,7 @@ repos:
     rev: 0.7.1 # The version to use or 'master' for latest
     hooks:
       - id: openapi-spec-validator
-        files: ^api-spec/api-spec\.json$
+        files: ^finn_codesubmit/api-spec/api-spec\.json$
 
   - repo: https://github.com/twu/skjold
     rev: v0.6.2

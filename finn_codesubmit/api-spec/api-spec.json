@@ -7,6 +7,28 @@
   },
   "components": {
     "schemas": {
+      "EncodedUrlRequest": {
+        "title": "The encoded URL request",
+        "required": ["url"],
+        "type": "object",
+        "properties": {
+          "url": {
+            "title": "The URL to be shortened",
+            "type": "string"
+          }
+        }
+      },
+      "DecodedUrlRequest": {
+        "title": "The decoded URL request",
+        "required": ["url"],
+        "type": "object",
+        "properties": {
+          "url": {
+            "title": "The shortened URL to be decoded",
+            "type": "string"
+          }
+        }
+      },
       "EncodedUrlResponse": {
         "title": "The encoded URL response",
         "required": ["shortUrl"],
@@ -45,17 +67,15 @@
   "paths": {
     "/encode": {
       "post": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "url",
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "description": "The URL to be encoded"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EncodedUrlRequest"
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Success",
@@ -82,17 +102,15 @@
     },
     "/decode": {
       "post": {
-        "parameters": [
-          {
-            "in": "query",
-            "name": "url",
-            "schema": {
-              "type": "string"
-            },
-            "required": true,
-            "description": "The URL to be decoded"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecodedUrlRequest"
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Success",

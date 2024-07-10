@@ -2,7 +2,9 @@
 
 setup() {
     poetry install && \
-    poetry run pre-commit install
+    poetry run pre-commit install && \
+    npm install -g serverless && \
+    npm install
 }
 
 lint() {
@@ -13,6 +15,14 @@ test() {
     poetry run pytest --cov=finn_codesubmit --cov-report=xml --cov-report=term tests/
 }
 
+test_e2e() {
+    if [[ -z "$E2E_TEST_URL" ]]; then
+        echo "Warning: E2E_TEST_URL must be defined for the e2e to point to a real instance, defaulting to http://localhost:8000"
+        export E2E_TEST_URL="http://localhost:8000"
+    fi
+    poetry run pytest tests/test_app.py
+}
+
 autoupdate() {
     poetry update && \
     poetry run pre-commit autoupdate
@@ -20,6 +30,10 @@ autoupdate() {
 
 serve() {
     poetry run uvicorn finn_codesubmit.app:app --reload
+}
+
+deploy() {
+    npx serverless deploy
 }
 
 case "$1" in
@@ -32,13 +46,19 @@ case "$1" in
     test)
         test
         ;;
+    test_e2e)
+        test_e2e
+        ;;
     autoupdate)
         autoupdate
         ;;
     serve)
         serve
         ;;
+    deploy)
+        deploy
+        ;;
     *)
-        echo "Error: Invalid command. Available commands: setup | lint | test | autoupdate | serve"
+        echo "Error: Invalid command. Available commands: setup | lint | test | test_e2e | autoupdate | serve | deploy"
         ;;
 esac

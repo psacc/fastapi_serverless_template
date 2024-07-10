@@ -15,9 +15,7 @@
     },
     "ghcr.io/devcontainers-contrib/features/poetry:2": {
       "version": "latest"
-    },
-    "ghcr.io/devcontainers-contrib/features/serverless:2": {
-      "version": "latest"
     }
-  }
+  },
+  "postStartCommand": "./cli setup"
 }

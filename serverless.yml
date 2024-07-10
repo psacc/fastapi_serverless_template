@@ -1,0 +1,25 @@
+org: psacc
+app: url-shortener-backend
+service: finn-codesubmit
+
+provider:
+  name: aws
+  runtime: python3.12
+  stage: ${opt:stage, 'dev'}
+
+plugins:
+  - serverless-python-requirements
+
+functions:
+  app:
+    environment:
+      # This is actually the URL of the Frontend that whill handle the short URLs routing
+      URL_PREFIX: !GetAtt HttpApi.ApiEndpoint
+      STAGE: ${self:provider.stage}
+    handler: finn_codesubmit.app.handler
+    events:
+      - httpApi: "*"
+
+custom:
+  pythonRequirements:
+    usePoetry: true

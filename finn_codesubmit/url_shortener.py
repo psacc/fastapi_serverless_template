@@ -28,7 +28,7 @@ class UrlShortener:
             KeyError: If the provided short URL is invalid
         """
         if not validators.url(long_url):
-            raise KeyError("Invalid short URL")
+            raise KeyError(f"Invalid URL: '{long_url}'")
 
         iteration: int = 0
         while iteration < MAX_COLLISION_RETRIES:
