@@ -1,5 +1,6 @@
 {
   "name": "Python and Node.js",
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "nodeGypDependencies": true,
