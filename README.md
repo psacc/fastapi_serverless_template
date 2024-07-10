@@ -55,7 +55,7 @@ This sections describes the development story of the assignment to allow a bette
 
 Working solo changes a lot, I've tried to show off what would happen in a real (team based) development scenario. I've used a private github repo and then pushed the result to the codesubmit one.
 
-GitHub repo: TODO (I can make it public if you agree or allow access to specific users, but it is not required to complete the evaluation).
+GitHub repo: [https://github.com/psacc/finn-codesubmit/](https://github.com/psacc/finn-codesubmit/) (I can make it public if you agree or allow access to specific users, but it is not required to complete the evaluation).
 
 This allowed to work with pull requests, simulating reviews and let me have a linear history in main/master. I've worked on feature branches, often switching feature as I were understanding how to best make it fit, but with the general guideline of following a merge order that will go as:
 
