@@ -1,0 +1,139 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "URL Shortener API",
+    "description": "A simple URL shortener API",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "EncodedUrlRequest": {
+        "title": "The encoded URL request",
+        "required": ["url"],
+        "type": "object",
+        "properties": {
+          "url": {
+            "title": "The URL to be shortened",
+            "type": "string"
+          }
+        }
+      },
+      "DecodedUrlRequest": {
+        "title": "The decoded URL request",
+        "required": ["url"],
+        "type": "object",
+        "properties": {
+          "url": {
+            "title": "The shortened URL to be decoded",
+            "type": "string"
+          }
+        }
+      },
+      "EncodedUrlResponse": {
+        "title": "The encoded URL response",
+        "required": ["shortUrl"],
+        "type": "object",
+        "properties": {
+          "shortUrl": {
+            "title": "The shortened URL",
+            "type": "string"
+          }
+        }
+      },
+      "DecodedUrlReponse": {
+        "title": "The decoded URL response",
+        "required": ["originalUrl"],
+        "type": "object",
+        "properties": {
+          "originalUrl": {
+            "title": "Original long URL",
+            "type": "string"
+          }
+        }
+      },
+      "ErrorReponse": {
+        "title": "Generic error response",
+        "required": ["detail"],
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Error message",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/encode": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EncodedUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EncodedUrlResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorReponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/decode": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecodedUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecodedUrlReponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorReponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

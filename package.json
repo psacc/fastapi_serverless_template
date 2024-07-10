@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "serverless": "^4.1.11",
+    "serverless-python-requirements": "^6.1.0"
+  },
+  "name": "finn-codesubmit",
+  "version": "1.0.0",
+  "description": "code challenge",
+  "keywords": [],
+  "author": "Paolo Sacconier",
+  "license": "MIT",
+  "overrides": {
+    "serverless-python-requirements": {
+      "serverless": "$serverless"
+    }
+  }
+}
