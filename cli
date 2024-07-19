@@ -36,6 +36,10 @@ deploy() {
     npx serverless deploy
 }
 
+destroy() {
+    npx serverless remove
+}
+
 case "$1" in
     setup)
         setup
@@ -58,7 +62,10 @@ case "$1" in
     deploy)
         deploy
         ;;
+    destroy)
+        destroy
+        ;;
     *)
-        echo "Error: Invalid command. Available commands: setup | lint | test | test_e2e | autoupdate | serve | deploy"
+        echo "Error: Invalid command. Available commands: setup | lint | test | test_e2e | autoupdate | serve | deploy | destroy"
         ;;
 esac
