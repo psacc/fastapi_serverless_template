@@ -1,0 +1,11 @@
+# put http tests for manual exexution here
+
+GET http://127.0.0.1:8000 HTTP/1.1
+
+###
+
+GET http://127.0.0.1:8000/health HTTP/1.1
+
+###
+
+GET http://127.0.0.1:8000/openapi.json HTTP/1.1

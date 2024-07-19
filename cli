@@ -1,0 +1,72 @@
+#!/bin/bash
+
+setup() {
+    poetry lock && \
+    poetry install && \
+    poetry run pre-commit install && \
+    npm install -g serverless && \
+    npm install
+}
+
+lint() {
+    poetry run pre-commit run --all-files
+}
+
+test() {
+    poetry run pytest --cov=project --cov-report=xml --cov-report=term tests/
+}
+
+test_e2e() {
+    if [[ -z "$E2E_TEST_URL" ]]; then
+        echo "Warning: E2E_TEST_URL must be defined for the e2e to point to a real instance, defaulting to http://localhost:8000"
+        export E2E_TEST_URL="http://localhost:8000"
+    fi
+    poetry run pytest tests/test_app.py
+}
+
+autoupdate() {
+    poetry update && \
+    poetry run pre-commit autoupdate
+}
+
+serve() {
+    poetry run uvicorn project.app:app --reload
+}
+
+deploy() {
+    npx serverless deploy
+}
+
+destroy() {
+    npx serverless remove
+}
+
+case "$1" in
+    setup)
+        setup
+        ;;
+    lint)
+        lint
+        ;;
+    test)
+        test
+        ;;
+    test_e2e)
+        test_e2e
+        ;;
+    autoupdate)
+        autoupdate
+        ;;
+    serve)
+        serve
+        ;;
+    deploy)
+        deploy
+        ;;
+    destroy)
+        destroy
+        ;;
+    *)
+        echo "Error: Invalid command. Available commands: setup | lint | test | test_e2e | autoupdate | serve | deploy | destroy"
+        ;;
+esac

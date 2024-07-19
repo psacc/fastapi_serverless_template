@@ -1,0 +1,22 @@
+{
+  "name": "Python and Node.js",
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "version": "22",
+      "nvmVersion": "latest"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": true,
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers-contrib/features/cookiecutter:2": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-contrib/features/poetry:2": {
+      "version": "latest"
+    }
+  },
+  "postStartCommand": "./cli setup"
+}
