@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "finn-codesubmit"
+name = "project"
 version = "0.1.0"
 description = ""
 authors = ["Paolo Sacconier <paolo@sacconier.net>"]
@@ -10,9 +10,6 @@ python = "^3.12"
 fastapi = "^0.111.0"
 uvicorn = {extras = ["standard"], version = "^0.30.1"}
 mangum = "^0.17.0"
-openapi-to-fastapi = "^0.16.0"
-validators = "^0.31.0"
-pybase62 = "^1.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.7.1"

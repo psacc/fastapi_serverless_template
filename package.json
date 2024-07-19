@@ -3,9 +3,9 @@
     "serverless": "^4.1.11",
     "serverless-python-requirements": "^6.1.0"
   },
-  "name": "finn-codesubmit",
+  "name": "project",
   "version": "1.0.0",
-  "description": "code challenge",
+  "description": "project template",
   "keywords": [],
   "author": "Paolo Sacconier",
   "license": "MIT",

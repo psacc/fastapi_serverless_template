@@ -1,33 +1,11 @@
-#  POST - https://m8gnml57ze.execute-api.us-east-1.amazonaws.com/encode
-#  POST - https://m8gnml57ze.execute-api.us-east-1.amazonaws.com/decode
+# put http tests for manual exexution here
 
-curl 'https://m8gnml57ze.execute-api.us-east-1.amazonaws.com/openapi.json' \
-  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
-  -H 'accept-language: it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7' \
-  -H 'cache-control: max-age=0' \
-  -H 'dnt: 1' \
-  -H 'priority: u=0, i' \
-  -H 'sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126"' \
-  -H 'sec-ch-ua-mobile: ?0' \
-  -H 'sec-ch-ua-platform: "macOS"' \
-  -H 'sec-fetch-dest: document' \
-  -H 'sec-fetch-mode: navigate' \
-  -H 'sec-fetch-site: cross-site' \
-  -H 'sec-fetch-user: ?1' \
-  -H 'upgrade-insecure-requests: 1' \
-  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-###
-
-POST https://m8gnml57ze.execute-api.us-east-1.amazonaws.com//encode/?url=pippo
+GET http://127.0.0.1:8000 HTTP/1.1
 
 ###
 
-POST https://m8gnml57ze.execute-api.us-east-1.amazonaws.com/encode?url=https%3A%2F%2Fwww.google.com
+GET http://127.0.0.1:8000/health HTTP/1.1
 
 ###
 
-POST https://zany-space-tribble-r756xxrg93wxwp-8000.app.github.dev/encode?url=https%3A%2F%2Fwww.google.com/
-
-###
-
-POST https://m8gnml57ze.execute-api.us-east-1.amazonaws.com/decode?url=https://www.google.com HTTP 1.1
+GET http://127.0.0.1:8000/openapi.json HTTP/1.1

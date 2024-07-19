@@ -2,8 +2,7 @@ from fastapi.openapi.utils import get_openapi
 from fastapi import FastAPI
 from mangum import Mangum
 
-from finn_codesubmit import router
-
+from project import router
 
 app = FastAPI()
 app.include_router(router.router)
@@ -13,11 +12,11 @@ def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
     openapi_schema = get_openapi(
-        title="Custom title",
+        title="Project",
         version="1.0.0",
         openapi_version="3.0.2",
-        summary="URL Shortener API",
-        description="A simple URL shortener API",
+        summary="Project APIs",
+        description="Project APIs",
         routes=app.routes,
     )
 

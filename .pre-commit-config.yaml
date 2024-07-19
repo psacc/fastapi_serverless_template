@@ -23,7 +23,7 @@ repos:
         files: \.bat$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.1
+    rev: v0.5.3
     hooks:
       - id: ruff
         args: ["--fix"]
@@ -36,12 +36,6 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-
-  - repo: https://github.com/python-openapi/openapi-spec-validator
-    rev: 0.7.1 # The version to use or 'master' for latest
-    hooks:
-      - id: openapi-spec-validator
-        files: ^finn_codesubmit/api-spec/api-spec\.json$
 
   - repo: https://github.com/twu/skjold
     rev: v0.6.2

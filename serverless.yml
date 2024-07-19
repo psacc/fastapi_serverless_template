@@ -1,6 +1,6 @@
 org: psacc
-app: url-shortener-backend
-service: finn-codesubmit
+app: project-serverless-app
+service: project-service
 
 provider:
   name: aws
@@ -13,10 +13,9 @@ plugins:
 functions:
   app:
     environment:
-      # This is actually the URL of the Frontend that whill handle the short URLs routing
       URL_PREFIX: !GetAtt HttpApi.ApiEndpoint
       STAGE: ${self:provider.stage}
-    handler: finn_codesubmit.app.handler
+    handler: project.handler
     events:
       - httpApi: "*"
 
